@@ -8,9 +8,11 @@ stateth is a tool which bundles together influxdb and grafana, links them togeth
 
     stateth
 
+    stateth --help
+
 
 ## Install
 
-    go get ./cmd/stateth
+    go get github.com/nonsense/stateth/cmd/stateth
 
-    go install ./cmd/stateth
+    go install github.com/nonsense/stateth/cmd/stateth

@@ -215,13 +215,14 @@ func runGrafana(c *cli.Context) error {
 		return err
 	}
 
-	r, err = exec.Command("docker", "inspect", "-f", "'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'", "stateth_grafana").CombinedOutput()
-	if err != nil {
-		log.Error(string(r))
-		return err
-	}
+	//r, err = exec.Command("docker", "inspect", "-f", "'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'", "stateth_grafana").CombinedOutput()
+	//if err != nil {
+	//log.Error(string(r))
+	//return err
+	//}
 
-	grafanaIP = strings.Trim(string(r), "' \n")
+	//grafanaIP = strings.Trim(string(r), "' \n")
+	grafanaIP = "localhost"
 
 	log.Info("grafana docker container ip", "ip", grafanaIP)
 	return nil
