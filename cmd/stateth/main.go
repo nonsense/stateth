@@ -15,7 +15,7 @@
 // along with go-ethereum. If not, see <http://www.gnu.org/licenses/>.
 
 // stateth is a command to orchestrate influxdb/grafana setup using
-// docker containers in order to visualize stats from Geth for
+// docker containers in order to visualize stats from Swarm for
 // development purposes.
 package main
 
@@ -58,7 +58,7 @@ const (
 func main() {
 	app := cli.NewApp()
 	app.Name = "stateth"
-	app.Usage = "run a local grafana/influxdb setup for local Geth node stats visualization"
+	app.Usage = "run a local grafana/influxdb setup for local Swarm node stats visualization"
 	app.Version = "0.0.1"
 	app.Flags = []cli.Flag{
 		cli.IntFlag{
@@ -78,12 +78,12 @@ func main() {
 		},
 		cli.StringFlag{
 			Name:  "influxdb-database",
-			Value: "geth",
+			Value: "metrics",
 			Usage: "default influxdb database to provision",
 		},
 		cli.StringFlag{
 			Name:  "grafana-dashboards-folder",
-			Value: os.Getenv("GOPATH") + "/src/github.com/ethereum/go-ethereum/cmd/stateth/grafana_dashboards",
+			Value: os.Getenv("GOPATH") + "/src/github.com/ethereum/go-ethereum/swarm/grafana_dashboards",
 			Usage: "default grafana dashboards folder",
 		},
 		cli.StringFlag{
